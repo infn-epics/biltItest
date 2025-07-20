@@ -6,14 +6,10 @@
 # Aliases for current and voltage
 # =================================================
 
-alias("$(device):CURRENT_RB","$(device):current_rb")
-alias("$(device):VOLTAGE_RB","$(device):voltage_rb")
-alias("$(device):CURRENT_SP","$(device):current")
-alias("$(device):STATUS_RB","$(device):state_rb")
-# alias("$(device):STATUS_SP","$(device):state")
+alias("$(device):STATUS_RB","$(device):STATE_RB")
 
 # State setpoint mbbo
-record(mbbo, "$(device):state") {
+record(mbbo, "$(device):STATE_SP") {
     field(DESC, "State setpoint (OFF/ON/STANDBY/RESET)")
     field(ZRVL, "0")
     field(ZRST, "OFF")
@@ -29,7 +25,7 @@ record(mbbo, "$(device):state") {
 # Map STATE_SP to STATUS_SP
 record(calcout, "$(device):state_sp_to_status") {
     field(DESC, "Map STATE_SP to STATUS_SP")
-    field(INPA, "$(device):state")
+    field(INPA, "$(device):STATE_SP")
     field(CALC, "A=1?1:(A=0||A=2)?0:0")
     field(OUT, "$(device):STATUS_SP PP")
     field(OOPT, "Every Time")
