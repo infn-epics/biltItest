@@ -19,8 +19,7 @@ TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
 
 # EPICS_BASE usually appears last so other apps can override stuff:
 EPICS_BASE=/epics/epics-base
-
-#Capfast users may need the following definitions
-#CAPFAST_TEMPLATES=
-#SCH2EDIF_PATH=
+SUPPORT=/epics/support
+ASYN=$(SUPPORT)/asyn
+STREAMDEVICE=$(SUPPORT)/StreamDevice
 -include $(TOP)/configure/RELEASE.local

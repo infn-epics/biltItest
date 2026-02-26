@@ -1,5 +1,5 @@
 epicsEnvSet("IOC","ioctest")
-epicsEnvSet("TOP","/app/biltItest")
+epicsEnvSet("TOP","/app/IOC-DEVEL/biltItest")
 epicsEnvSet("SUPPORT","/epics/support")
 epicsEnvSet("SNCSEQ","/epics/support/sequencer")
 epicsEnvSet("ASYN","/epics/support/asyn")

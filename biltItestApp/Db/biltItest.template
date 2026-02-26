@@ -125,3 +125,45 @@ record(ai, "$(device):VOLTAGE_RB")
     field(HHSV, "MAJOR")
 }
 ################################################################################
+# System Error (chassis-level, FIFO)
+#
+record(stringin, "$(device):SYSERR_RB")
+{
+    field(DESC, "System Error")
+    field(DTYP, "stream")
+    field(INP,  "@biltItest.proto get_syserr $(port)")
+    field(SCAN, "5 second")
+}
+################################################################################
+# Module Limit Fault
+#
+record(stringin, "$(device):FAULT_RB")
+{
+    field(DESC, "Module Fault")
+    field(DTYP, "stream")
+    field(INP,  "@biltItest.proto get_fail($(module)) $(port)")
+    field(SCAN, "2 second")
+}
+################################################################################
+# Limit Monitoring State
+#
+record(bi, "$(device):LIMSTAT_RB")
+{
+    field(DESC, "Limit Monitoring State")
+    field(DTYP, "stream")
+    field(INP,  "@biltItest.proto get_limst($(module)) $(port)")
+    field(SCAN, "5 second")
+    field(ZNAM, "Disabled")
+    field(ONAM, "Enabled")
+}
+################################################################################
+# Clear Limit Fault
+#
+record(bo, "$(device):LIMCLR")
+{
+    field(DESC, "Clear Limit Fault")
+    field(DTYP, "stream")
+    field(OUT,  "@biltItest.proto set_limclr($(module)) $(port)")
+    field(ZNAM, "Clear")
+}
+################################################################################

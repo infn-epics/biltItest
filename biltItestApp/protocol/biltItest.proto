@@ -14,6 +14,12 @@ set_setcurr { out "i\$1"; out "CURR %.5f";               }
 get_curr    { out "i\$1"; out "MEAS:CURR?";  in "%g";    }
 get_volt    { out "i\$1"; out "MEAS:VOLT?";  in "%g";    }
 
+# Error and fault readbacks
+get_syserr  {              out "SYST:ERR?";  in "%80c";  }
+get_fail    { out "i\$1"; out "LIM:FAIL?";   in "%30c";  }
+get_limst   { out "i\$1"; out "LIM:STAT?";   in "%i";    }
+set_limclr  { out "i\$1"; out "LIM:CLE";                 }
+
 #set_group  { out "p\$1:DEF;INST:LIST \$2,\$3"; }
 
 ######################################################################
