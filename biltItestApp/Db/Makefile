@@ -11,7 +11,7 @@ include $(TOP)/configure/CONFIG
 # Create and install (or just install)
 # databases, templates, substitutions like this
 DB += biltItest.template
-DB += unimag.db
+DB += unimag-biltItest.db
 
 #----------------------------------------------------
 # If <anyname>.db template is not named <anyname>*.template add
